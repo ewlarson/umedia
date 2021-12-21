@@ -1,4 +1,4 @@
-FROM ruby:2.6.1
+FROM ruby:2.6.8
 LABEL maintainer="fenne035@umn.edu"
 
 # Stolen from https://github.com/jfroom/docker-compose-rails-selenium-example
@@ -24,4 +24,3 @@ RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 RUN gem update --system ; gem install bundler
 RUN bundle check || bundle install
-

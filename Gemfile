@@ -3,12 +3,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '2.6.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.5'
 # Use Puma as the app server
-gem 'puma', '>= 4.3.5'
+gem 'puma', '~> 4.3.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -51,7 +51,8 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
+  gem 'capybara-screenshot'
+  gem 'webdrivers'
   gem 'simplecov'
   gem 'minitest-spec-rails'
   # To eliminate warnings of the form '...forwarding to private method Minitest::Mock#{method_name}'
@@ -84,3 +85,6 @@ gem 'rack', '>= 2.0.8'
 gem 'rubyzip', '>= 1.3.0'
 # Allows us to delete thumbs
 gem 'aws-sdk'
+
+gem 'dotenv-rails'
+gem 'rest-client'
