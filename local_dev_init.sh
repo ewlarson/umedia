@@ -16,8 +16,8 @@ then
   cp -n .env.example .env # n = "no clobber: don't overwrite if already there"
   docker-compose build;
   (docker-compose run app yarn install)
-  echo "sudo chown -R $(whoami):$(whoami) node_modules"
-  sudo chown -R $(whoami):$(whoami) node_modules
+  echo "sudo chown -R $(whoami): node_modules"
+  sudo chown -R $(whoami): node_modules
 
 
   # Create the snapshot directories
