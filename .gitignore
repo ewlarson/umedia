@@ -41,3 +41,7 @@ yarn-debug.log*
 .env
 /snapshots
 /umedia_solr_conf
+
+# Test coverage
+/coverage
+/snapshots_test
