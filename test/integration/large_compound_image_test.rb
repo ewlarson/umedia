@@ -6,14 +6,17 @@ class HomeTest < ActiveSupport::TestCase
     Capybara.use_default_driver
   end
   it 'loads the OSD viewer and a clickable list of sidebar child pages' do
-    Capybara.current_driver = :selenium
+    # Capybara.current_driver = :selenium
     visit 'item/p16022coll345:69542'
+
+    Capybara::Screenshot.screenshot_and_open_image
+
     find(:css, ".ui-slider-handle").drag_by(0, 50)
     _(has_selector?(:xpath, '//*[@id="sidebar-p16022coll345:69215"]/div')).must_equal true
   end
 
   it 'sidebar pages are searchable' do
-    Capybara.current_driver = :selenium
+    # Capybara.current_driver = :selenium
     visit 'item/p16022coll345:69542'
     fill_in 'q', with: 'Genetics'
     find(:xpath, '//*[@id="sidebar"]/form/div/span/button').click

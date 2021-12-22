@@ -10,13 +10,13 @@ class HomeTest < ActiveSupport::TestCase
 
   describe 'when a search with no query has been submitted (the default search)' do
     it 'returns results' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/search'
       sleep 1
       _(page).must_have_content('10,000 Lakes or More')
     end
     it 'sorts z to a' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/search'
       sleep 1
       find(:css, '#sort-dropdown > button').click
@@ -26,7 +26,7 @@ class HomeTest < ActiveSupport::TestCase
       _(find(:xpath, '//*[@id="main"]/div[7]/div[1]/div/div/a').text).must_equal('Warehouse work')
     end
     it 'sorts creator a to z' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/search'
       sleep 1
       find(:css, '#sort-dropdown > button').click
@@ -36,7 +36,7 @@ class HomeTest < ActiveSupport::TestCase
       _(find(:xpath, '//*[@id="main"]/div[7]/div[1]/div/div/a').text).must_equal("Bancroft's official guide map of City and County of San Francisco : compiled from official maps in Surveyor's Office.")
     end
     it 'sorts creator z to a' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/search'
       sleep 1
       find(:css, '#sort-dropdown > button').click
@@ -46,7 +46,7 @@ class HomeTest < ActiveSupport::TestCase
       _(find(:xpath, '//*[@id="main"]/div[7]/div[1]/div/div/a').text).must_equal('10,000 Lakes or More - Boating Opportunities')
     end
     it 'sorts by date, oldest first' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/search'
       sleep 1
       find(:css, '#sort-dropdown > button').click
@@ -56,7 +56,7 @@ class HomeTest < ActiveSupport::TestCase
       _(find(:xpath, '//*[@id="main"]/div[7]/div[1]/div/div/a').text).must_equal('15th Century, Afghanistan and Pakistan')
     end
     it 'sorts by date, newest first' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/search'
       sleep 1
       find(:css, '#sort-dropdown > button').click
@@ -65,7 +65,7 @@ class HomeTest < ActiveSupport::TestCase
       _(find(:xpath, '//*[@id="main"]/div[7]/div[1]/div/div/a').text).must_equal('100 Years of Student Drawings: John Cunningham, Jane Hession, and Katherine Solomonson, Dec. 2014')
     end
     it 'sets 10 per page' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/search'
       find(:css, '#per-page-dropdown > button').click
       find(:css, '#per-page-dropdown > ul > li:nth-child(1) > a').click
@@ -76,7 +76,7 @@ class HomeTest < ActiveSupport::TestCase
   describe 'when searching records with titles orderd by number' do
     it 'sorts them correctly' do
       skip 'seems to expect data that does not change across test env builds, but it seems it does change'
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/search'
       fill_in 'q', with: 'plate museum'
       find(:xpath, '//*[@id="udc-search-control"]/form/div/span/button').click

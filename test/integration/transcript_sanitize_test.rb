@@ -10,7 +10,7 @@ class TranscriptSanitizeTest < ActiveSupport::TestCase
 
   describe 'when viewing bad transcript data' do
     it 'escapes html special characters' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
 
       visit '/item/p16022coll460:672'
       find(:xpath, '//a[@data-section="transcriptions"][1]').click
@@ -20,4 +20,3 @@ class TranscriptSanitizeTest < ActiveSupport::TestCase
     end
   end
 end
-

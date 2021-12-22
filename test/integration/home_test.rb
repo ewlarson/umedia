@@ -10,7 +10,7 @@ class HomeTest < ActiveSupport::TestCase
 
   describe 'when it displays a pagable set of collections' do
     it 'pages and collections are clickable' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/home'
       # Click the second page of the pager (link 4 after prev,next,1)
       find(:xpath, '//*[@id="collections-home"]/div/div[3]/div[2]/nav/ul/li[4]/a').click
@@ -18,7 +18,7 @@ class HomeTest < ActiveSupport::TestCase
       _(page).must_have_content('Letter, to a fellow heir')
     end
     it 'nex/prev and collections are clickable' do
-      Capybara.current_driver = :selenium
+      # Capybara.current_driver = :selenium
       visit '/home'
       # Click the 2nd page of the pager (link 3 after prev,next)
       find(:xpath, '//*[@id="collections-home"]/div/div[3]/div[2]/nav/ul/li[3]/a').click

@@ -28,7 +28,13 @@ export default stampit({
         if (config.fullScreen === false) {
           location.reload();
         }
-    });
+      });
+
+      // Mark DOM open
+      seadragon.addHandler('open', function() {
+        let viewer_elm = document.getElementById('osd-viewer');
+        viewer_elm.classList.add("osd-viewer-open");
+      });
     }
   },
   methods: {

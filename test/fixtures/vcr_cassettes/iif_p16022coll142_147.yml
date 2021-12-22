@@ -54,6 +54,102 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         H4sIAAAAAAAAA31QQW7DIBC85xWWzxYESoPJKad+osoBYWJvhY1lUFs1yt9LIDZVY5kDmh12Zoe97oqiPCk7eP3ty2NRdt6PR4wB4ILAYjkChl62GlP86EIfzg5lFYXQzBoXRKrpyWFPKYqdg296ZJVRyE4tbqAFL000xmNsU9YYwigmjCe7TkPb3VNwziPxBY3vQk1InYhxshcwOlDvoSw24xr9qQ1JaUPzeTbwNgze+moK48Mctwy6xjvQTkmj36Tydsqv90OqBdIMWYZ1huTwgOeZy1/dUxa525LZwc9akv/LSfv4s8JkU62rXgV7Fr3UYlNExcokItimiLD6WSS20/GVcEzkvexuv3Z6OU25AgAA
-    http_version: 
   recorded_at: Tue, 14 Aug 2018 14:46:49 GMT
-recorded_with: VCR 4.0.0
+- request:
+    method: get
+    uri: https://cdm16022.contentdm.oclc.org/digital/iiif/p16022coll142/147/info.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (linux-gnu aarch64) ruby/2.6.8p205
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - cdm16022.contentdm.oclc.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 21 Dec 2021 16:11:07 GMT
+      Server:
+      - Apache
+      X-Content-Type-Options:
+      - nosniff
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      - 1; mode=block
+      X-Oclc-Iiif-Provider:
+      - cantaloupe
+      Vary:
+      - Origin,Accept-Encoding,Access-Control-Request-Method,Access-Control-Request-Headers,User-Agent
+      Content-Type:
+      - application/json
+      Etag:
+      - '"0b840f23bcea8b7bae123ade129127c4f-gzip"'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Set-Cookie:
+      - JSESSIONID=MGY0MjBjN2ItOTM1ZS00ZjRiLTg2NzgtNjJiZjE1N2Q1YTNh; Path=/; HttpOnly;
+        SameSite=Lax
+      Cache-Control:
+      - max-age=0
+      Expires:
+      - Tue, 21 Dec 2021 16:11:07 GMT
+      Content-Length:
+      - '276'
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "@context": "http://iiif.io/api/image/2/context.json",
+          "@id": "https://cdm16022.contentdm.oclc.org/digital/iiif/p16022coll142/147",
+          "height": 777,
+          "width": 1187,
+          "profile": [
+            "http://iiif.io/api/image/2/level1.json"
+          ],
+          "protocol": "http://iiif.io/api/image",
+          "tiles": [
+            {
+              "scaleFactors": [
+                1,
+                2,
+                4,
+                8,
+                16
+              ],
+              "width": 1024
+            }
+          ],
+          "sizes": [
+            {
+              "width": 1187,
+              "height": 777
+            },
+            {
+              "width": 594,
+              "height": 389
+            },
+            {
+              "width": 297,
+              "height": 194
+            },
+            {
+              "width": 148,
+              "height": 97
+            },
+            {
+              "width": 74,
+              "height": 49
+            }
+          ]
+        }
+  recorded_at: Tue, 21 Dec 2021 16:11:07 GMT
+recorded_with: VCR 6.0.0

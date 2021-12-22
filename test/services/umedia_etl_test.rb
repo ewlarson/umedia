@@ -12,7 +12,7 @@ require 'test_helper'
           :cdm_endpoint=>"https://server16022.contentdm.oclc.org/dmwebservices/index.php",
           :max_compounds=>1,
           :batch_size=>50,
-          :solr_config=>{:url=>"http://solr_test:8983/solr/core"}
+          :solr_config=>{:url=>"http://localhost:8983/solr/core"}
         )
       end
 

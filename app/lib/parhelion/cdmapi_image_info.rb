@@ -15,8 +15,10 @@ module Parhelion
     end
 
     def info
+      retries ||= 0
       @info ||= JSON.parse(rest_client_klass.get(info_url).body)
     rescue StandardError => e
+      retry if (retries += 1) < 2
       raise "Webservices Error for #{info_url}: #{e}"
     end
 

@@ -6,7 +6,7 @@ class AudioTest < ActiveSupport::TestCase
     Capybara.use_default_driver
   end
   it 'loads a kaltura audio player' do
-    Capybara.current_driver = :selenium
+    # Capybara.current_driver = :selenium
     visit '/item/p16022coll171:1706'
     _(has_selector?(:xpath, '//*[@id="kaltura_player_ifp"]')).must_equal true
   end
