@@ -25,6 +25,10 @@ jobs:
           bundle lock --add-platform x86_64-linux
           bundle install --jobs 4 --retry 3
 
+      - name: NPM - Install Canvas
+        run: |
+          npm install canvas
+
       - name: Rails - Yarn install
         env:
           RAILS_ENV: test
