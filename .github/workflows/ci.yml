@@ -8,7 +8,7 @@ name: Rails - Install dependencies and run linters
 on: [push]
 
 jobs:
-  run-lint:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -16,6 +16,16 @@ jobs:
 
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
+
+      - name: Create Solr container
+        run: docker run -d -p 8983:8983 ewlarson/umedia-solr:7.3-v1.0.0 server/scripts/ci-start.sh
+
+      - name: Load config into solr
+        run: |
+          cd solr/conf
+          zip -1 -r solr_config.zip ./*
+          curl -H "Content-type:application/octet-stream" --data-binary @solr_config.zip "http://solr:SolrRocks@127.0.0.1:8983/solr/admin/configs?action=UPLOAD&name=core"
+          curl -H 'Content-type: application/json' http://solr:SolrRocks@127.0.0.1:8983/api/collections/  -d '{create: {name: core, config: umedia, numShards: 1}}'
 
       # - name: NPM - Install Canvas
       #  run: |
