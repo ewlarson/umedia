@@ -18,7 +18,7 @@ jobs:
         uses: ruby/setup-ruby@v1
 
       - name: Create Solr container
-        run: docker run -d -p 8983:8983 ewlarson/umedia-solr:7.3-v1.0.0 server/scripts/ci-start.sh
+        run: docker run -d -p 8983:8983 ewlarson/umedia-solr:7.3-v1.0.0 server/scripts/ci-start.sh --platform linux/amd64
 
       - name: Load config into solr
         run: |
