@@ -53,6 +53,7 @@ jobs:
         env:
           RAILS_ENV: test
           RUBYOPT: W0
+          UMEDIA_NAILER_CDN_URI: ${{ secrets.UMEDIA_NAILER_CDN_URI }}
         run: |
           bundle exec rails test
 
