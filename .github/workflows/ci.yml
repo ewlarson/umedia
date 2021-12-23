@@ -33,7 +33,7 @@ jobs:
           cd solr/conf
           zip -1 -r solr_config.zip ./*
           curl -H "Content-type:application/octet-stream" --data-binary @solr_config.zip "http://solr:SolrRocks@127.0.0.1:8983/solr/admin/configs?action=UPLOAD&name=core"
-          curl -H 'Content-type: application/json' http://solr:SolrRocks@127.0.0.1:8983/api/collections/  -d '{create: {name: core, config: umedia, numShards: 1}}'
+          curl -H 'Content-type: application/json' http://solr:SolrRocks@127.0.0.1:8983/api/collections/  -d '{create: {name: core, config: core, numShards: 1}}'
 
       # - name: NPM - Install Canvas
       #  run: |
