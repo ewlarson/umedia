@@ -17,10 +17,10 @@ jobs:
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
 
-      - name: NPM - Install Canvas
-        run: |
-          sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-          npm install canvas
+      # - name: NPM - Install Canvas
+      #  run: |
+      #    sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+      #    npm install canvas
 
       - name: Rails - Bundle install
         env:
@@ -30,24 +30,31 @@ jobs:
           bundle lock --add-platform x86_64-linux
           bundle install --jobs 4 --retry 3
 
-      - name: Rails - Yarn install
-        env:
-          RAILS_ENV: test
-        run: |
-          yarn install
+      # - name: Rails - Yarn install
+      #  env:
+      #    RAILS_ENV: test
+      #  run: |
+      #    yarn install
 
-      - name: Rails - Precompile Assets
-        env:
-          RAILS_ENV: test
-        run: |
-          bundle exec rails assets:precompile
+      # - name: Rails - Precompile Assets
+      #  env:
+      #    RAILS_ENV: test
+      #  run: |
+      #    bundle exec rails assets:precompile
 
-      - name: Rails - Database setup
+      # - name: Run tests
+      #  env:
+      #    RAILS_ENV: test
+      #  run: |
+      #    bundle exec rails db:schema:load
+      #    bin/rails db:migrate RAILS_ENV=test
+
+      - name: Tests - Run tests
         env:
           RAILS_ENV: test
+          RUBYOPT: W0
         run: |
-          bundle exec rails db:schema:load
-          bin/rails db:migrate RAILS_ENV=test
+          bundle exec rails test
 
       # Add or Replace any other security checks here
       - name: Run security checks
