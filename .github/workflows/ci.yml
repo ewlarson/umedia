@@ -40,6 +40,7 @@ jobs:
           RAILS_ENV: test
           UMEDIA_NAILER_CDN_URI: ${{ secrets.UMEDIA_NAILER_CDN_URI }}
           SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/core
+          SOLR_BACKUP_LOCATION: ${{ secrets.SOLR_BACKUP_LOCATION }}
         run: |
           bundle exec rake solr:restore
 
