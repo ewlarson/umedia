@@ -35,6 +35,12 @@ jobs:
           curl -H "Content-type:application/octet-stream" --data-binary @solr_config.zip "http://solr:SolrRocks@127.0.0.1:8983/solr/admin/configs?action=UPLOAD&name=core"
           curl -H 'Content-type: application/json' http://solr:SolrRocks@127.0.0.1:8983/api/collections/  -d '{create: {name: core, config: core, numShards: 1}}'
 
+      - name: Solr - Restore snapshot
+        env:
+          RAILS_ENV: test
+        run: |
+          bundle exec rake solr:restore
+
       # - name: NPM - Install Canvas
       #  run: |
       #    sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
