@@ -3,7 +3,7 @@ require 'test_helper'
 class SingleImageTest < ActiveSupport::TestCase
   def teardown
     super
-    Capybara.use_default_driver
+    Capybara.current_driver = :selenium
   end
   it 'loads the OSD viewer' do
     # Capybara.current_driver = :selenium
