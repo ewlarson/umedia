@@ -78,18 +78,6 @@ jobs:
         run: |
           bundle exec rails assets:precompile
 
-      - name: Compile Assets
-        env:
-          RAILS_ENV: test
-          RUBYOPT: W0
-          UMEDIA_NAILER_CDN_URI: ${{ secrets.UMEDIA_NAILER_CDN_URI }}
-          SOLR_URL: ${{ secrets.SOLR_URL }}
-          PARHELION_CDM_ENDPOINT: ${{ secrets.PARHELION_CDM_ENDPOINT }}
-          PARHELION_CDM_WEBSERVICES_ENDPOINT: ${{ secrets.PARHELION_CDM_WEBSERVICES_ENDPOINT }}
-          RAILS_BASE_URL: ${{ secrets.RAILS_BASE_URL }}
-        run: |
-          bundle exec webpacker:compile
-
       - name: Tests - Run tests
         env:
           RAILS_ENV: test
