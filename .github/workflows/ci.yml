@@ -75,6 +75,7 @@ jobs:
           SOLR_URL: ${{ secrets.SOLR_URL }}
           PARHELION_CDM_ENDPOINT: ${{ secrets.PARHELION_CDM_ENDPOINT }}
           PARHELION_CDM_WEBSERVICES_ENDPOINT: ${{ secrets.PARHELION_CDM_WEBSERVICES_ENDPOINT }}
+          RAILS_BASE_URL: ${{ secrets.RAILS_BASE_URL }}
         run: |
           bundle exec rails test
 
