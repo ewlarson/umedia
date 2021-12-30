@@ -17,6 +17,11 @@ jobs:
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
 
+      - name: Node - Install node for Rails JS runtime
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+
       - name: Solr - Create container
         run: docker run --platform linux/amd64 -d -p 8983:8983 ewlarson/umedia-solr:7.3-v1.0.1 server/scripts/ci-start.sh
 
