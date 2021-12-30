@@ -54,18 +54,23 @@ jobs:
       #  run: |
       #    yarn install
 
-      # - name: Rails - Precompile Assets
-      #  env:
-      #    RAILS_ENV: test
-      #  run: |
-      #    bundle exec rails assets:precompile
-
       # - name: Run tests
       #  env:
       #    RAILS_ENV: test
       #  run: |
       #    bundle exec rails db:schema:load
       #    bin/rails db:migrate RAILS_ENV=test
+
+      - name: Rails - Precompile Assets
+        env:
+          RAILS_ENV: test
+        run: |
+          bundle exec rails assets:precompile
+
+      - name: Compile Assets
+        RAILS_ENV: test
+        run: |
+          bundle exec webpacker:compile
 
       - name: Tests - Run tests
         env:
