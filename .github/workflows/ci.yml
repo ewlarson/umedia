@@ -73,6 +73,8 @@ jobs:
           RUBYOPT: W0
           UMEDIA_NAILER_CDN_URI: ${{ secrets.UMEDIA_NAILER_CDN_URI }}
           SOLR_URL: ${{ secrets.SOLR_URL }}
+          PARHELION_CDM_ENDPOINT: ${{ secrets.PARHELION_CDM_ENDPOINT }}
+          PARHELION_CDM_WEBSERVICES_ENDPOINT: ${{ secrets.PARHELION_CDM_WEBSERVICES_ENDPOINT }}
         run: |
           bundle exec rails test
 
