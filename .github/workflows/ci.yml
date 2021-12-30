@@ -68,7 +68,8 @@ jobs:
           bundle exec rails assets:precompile
 
       - name: Compile Assets
-        RAILS_ENV: test
+        env:
+          RAILS_ENV: test
         run: |
           bundle exec webpacker:compile
 
