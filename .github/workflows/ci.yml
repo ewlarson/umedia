@@ -39,7 +39,7 @@ jobs:
         env:
           RAILS_ENV: test
           UMEDIA_NAILER_CDN_URI: ${{ secrets.UMEDIA_NAILER_CDN_URI }}
-          SOLR_URL: http://solr:SolrRocks@localhost:8983/solr/core
+          SOLR_URL: ${{ secrets.SOLR_URL }}
         run: |
           bundle exec rake solr:index_data_dump
 
@@ -72,6 +72,7 @@ jobs:
           RAILS_ENV: test
           RUBYOPT: W0
           UMEDIA_NAILER_CDN_URI: ${{ secrets.UMEDIA_NAILER_CDN_URI }}
+          SOLR_URL: ${{ secrets.SOLR_URL }}
         run: |
           bundle exec rails test
 
