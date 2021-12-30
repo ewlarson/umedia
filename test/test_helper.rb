@@ -8,9 +8,6 @@ require "minitest/autorun"
 require 'mocha/minitest'
 require 'webmock/minitest'
 
-
-
-
 WebMock.enable!
 
 VCR.configure do |config|
@@ -28,30 +25,21 @@ require 'capybara/minitest'
 require 'capybara/minitest/spec'
 require 'capybara-screenshot/minitest'
 
-Capybara.server = :puma, { Silent: true }
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
 
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  [
+    "headless",
+    "window-size=1280x1280",
+    "disable-gpu" # https://developers.google.com/web/updates/2017/04/headless-chrome
+  ].each { |arg| options.add_argument(arg) }
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
-Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: {
-      args: %w(no-sandbox headless disable-gpu window-size=1280,800),
-    },
-  )
+Capybara.save_path = "/tmp/screenshots"
 
-  Capybara::Selenium::Driver.new app,
-    browser: :chrome,
-    desired_capabilities: capabilities
-end
-
-Capybara.default_driver = :headless_chrome
-Capybara.javascript_driver = :headless_chrome
-Capybara.default_max_wait_time = 120
-Capybara.save_path = "#{Rails.root}/tmp/screenshots"
-
-Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
+Capybara::Screenshot.register_driver(:selenium_chrome_headless) do |driver, path|
   driver.browser.save_screenshot(path)
 end
 
