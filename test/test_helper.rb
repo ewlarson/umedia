@@ -42,8 +42,8 @@ Capybara.register_driver(:headless_chrome) do |app|
                                  options: options)
 end
 
-Capybara.app_host = "http://localhost:#{ENV['TEST_PORT']}"
-Capybara.asset_host = 'http://localhost:3001'
+# Capybara.app_host = "http://localhost:#{ENV['TEST_PORT']}"
+# Capybara.asset_host = 'http://localhost:3001'
 Capybara.default_driver = :headless_chrome
 Capybara.javascript_driver = :headless_chrome
 Capybara.default_max_wait_time = 120
