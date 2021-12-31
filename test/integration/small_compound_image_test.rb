@@ -5,7 +5,7 @@ require 'test_helper'
 class SmallCompoundTest < ActiveSupport::TestCase
   def teardown
     super
-    Capybara.use_default_driver
+    Capybara.current_driver = :selenium_chrome_headless
   end
   it 'loads the OSD viewer and a clickable list of sidebar child pages' do
     Capybara.current_driver = :selenium

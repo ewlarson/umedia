@@ -37,6 +37,8 @@ Capybara.register_driver :selenium_chrome_headless do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
+
+Capybara.asset_host = ENV['RAILS_BASE_URL']
 Capybara.save_path = "/tmp/screenshots"
 
 Capybara::Screenshot.register_driver(:selenium_chrome_headless) do |driver, path|

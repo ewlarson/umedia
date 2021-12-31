@@ -5,7 +5,7 @@ require 'test_helper'
 class HomeTest < ActiveSupport::TestCase
   def teardown
     super
-    Capybara.use_default_driver
+    Capybara.current_driver = :selenium_chrome_headless
   end
 
   describe 'when a search with no query has been submitted (the default search)' do

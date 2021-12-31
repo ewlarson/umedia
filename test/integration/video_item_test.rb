@@ -3,7 +3,7 @@ require 'test_helper'
 class AudioTest < ActiveSupport::TestCase
   def teardown
     super
-    Capybara.use_default_driver
+    Capybara.current_driver = :selenium_chrome_headless
   end
   it 'loads a kaltura audio player' do
     # Capybara.current_driver = :selenium
